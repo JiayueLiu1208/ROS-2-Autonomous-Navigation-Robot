@@ -13,8 +13,6 @@ The system connects perception to navigation: detections inform inspection behav
 - **Perception:** YOLO object detection integrated with inspection-image capture, confidence/quality filtering and camera-servo behaviour.
 - **Exploration and diagnostics:** coverage-oriented search for unknown targets, live map visualisation, path-tracking diagnostics and onboard resource monitoring.
 
-**Scope:** the bundled full-mission profile uses the configured final-demo room and plant goals. The separate `slam.launch.py` provides online mapping; it is not automatically substituted into the full-mission launch. A new environment requires updating the map, marker/goal configuration, sensor transforms and calibration, or validating a live-map planning integration. This repository is a hardware-oriented research prototype, not a general-purpose navigation product.
-
 ## Repository layout
 
 ```text
