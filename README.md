@@ -1,6 +1,6 @@
 # ROS 2 Autonomous Navigation Robot
 
-A ROS 2 mobile robot for autonomous plant inspection, combining LiDAR mapping, sensor-fusion localisation, route planning, motion control and YOLO object detection. Developed as a university team project for the University of Melbourne's Autonomous Systems Clinic.
+A ROS 2 mobile robot for autonomous plant inspection, combining LiDAR mapping, sensor-fusion localisation, route planning, motion control and YOLO object detection.
 
 The system connects perception to navigation: detections inform inspection behaviour, the planner selects approach routes, and the controller coordinates movement, camera positioning and image capture. Configuration files and calibration utilities are included so the hardware interfaces and navigation parameters can be adapted to another robot.
 
@@ -127,9 +127,15 @@ The publication preparation checks Python syntax, shell syntax, YAML/XML parsing
 
 Useful experiment entry points include `straight_line_test.launch.py`, `arc_path_test.launch.py`, `run_arc_path_tuned.sh`, and `run_turn_45_deg.sh` / `run_turn_90_deg.sh` / `run_turn_180_deg.sh`. These are hardware experiments and may command motors. Generated results stay outside version control.
 
-## Credits and licence
+## Acknowledgements
 
-University team: Jiayue (Luna) Liu, Jiayang Liu, Jincheng Hu and Tiancheng Yang. The source includes University of Melbourne ASClinic teaching components; their existing copyright notices and original package-maintainer attribution are retained.
+The robot software was developed collaboratively by **Jiayue (Luna) Liu, Jiayang Liu, Jincheng Hu and Tiancheng Yang**.
+
+The repository incorporates existing robot-interface code and node templates. Credit remains with their original authors; copyright notices are preserved in the source files and [LICENSE](LICENSE), and the original package-maintainer attribution is retained in `package.xml`.
+
+The system also uses open-source software from the [ROS 2](https://docs.ros.org/en/humble/), [SLAM Toolbox](https://github.com/SteveMacenski/slam_toolbox), [OpenCV](https://opencv.org/), [Slamtec RPLIDAR](https://github.com/Slamtec/rplidar_ros/tree/ros2) and [Ultralytics](https://github.com/ultralytics/ultralytics) communities. Their maintainers and contributors are acknowledged for the libraries and tools that support this implementation.
+
+## Licence
 
 The package metadata declares MIT, reproduced in [LICENSE](LICENSE). External dependencies and any separately supplied model weights remain subject to their respective licences.
 
