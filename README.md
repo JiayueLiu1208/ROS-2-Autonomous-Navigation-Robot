@@ -127,7 +127,7 @@ Useful experiment entry points include `straight_line_test.launch.py`, `arc_path
 
 ## Acknowledgements
 
-The robot software was developed collaboratively by **Jiayue (Luna) Liu, Jiayang Liu, Jincheng Hu and Tiancheng Yang**.
+The robot software was developed through collaborative teamwork. The contributions of all team members are gratefully acknowledged.
 
 The repository incorporates existing robot-interface code and node templates. Credit remains with their original authors; copyright notices are preserved in the source files and [LICENSE](LICENSE), and the original package-maintainer attribution is retained in `package.xml`.
 
