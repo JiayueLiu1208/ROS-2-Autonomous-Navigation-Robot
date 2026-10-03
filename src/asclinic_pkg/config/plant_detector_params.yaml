@@ -1,0 +1,51 @@
+plant_detector_node:
+  ros__parameters:
+    image_topic: "/asc/camera_image"
+    detections_topic: "/asc/plant_detections"
+    debug_image_topic: "/asc/plant_detector/debug_image"
+    enabled_topic: "/asc/plant_detector/enabled"
+    start_enabled: true
+    model_path: "models/plant_detector/best.pt"
+    confidence_threshold: 0.25
+    iou_threshold: 0.45
+    device: "auto"
+    publish_debug_image: false
+    inference_rate_hz: 2.0
+    target_classes: [
+      "plant_01",
+      "plant_02",
+      "plant_03",
+      "plant_04",
+      "plant_05",
+      "plant_06",
+      "flower_01",
+      "flower_02",
+      "rose",
+    ]
+    save_positive_images: false
+    save_positive_requires_valid_capture: false
+    positive_image_dir: "data/plant_dataset/positive"
+    positive_save_gate_topic: ""
+    min_bbox_area_ratio: 0.025
+    check_image_quality: true
+    min_laplacian_variance: 30.0
+    min_mean_brightness: 25.0
+    max_mean_brightness: 245.0
+
+plant_image_capture_node:
+  ros__parameters:
+    image_topic: "/asc/camera_image"
+    output_dir: "data/plant_dataset/raw"
+    capture_interval_sec: 2.0
+    save_metadata: true
+    max_images: 0
+    image_prefix: "plant"
+    capture_mode: "manual"
+    trigger_topic: "/asc/plant_detector/capture_request"
+    capture_service: "/asc/plant_detector/capture_image"
+    robot_pose_topic: "/asc/pitt_fused_odometry"
+    plant_target_id: ""
+    discard_low_quality: false
+    min_laplacian_variance: 30.0
+    min_mean_brightness: 25.0
+    max_mean_brightness: 245.0

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>asclinic_pkg</name>
+  <version>0.0.1</version>
+  <description>The package for operating the robot used in the Autonomous Systems Clinic (ASClinic for short)</description>
+
+  <!-- One maintainer, Author and license tag-->
+  <maintainer email="matt.xavier@unimelb.edu.au">Matheus Xavier</maintainer>
+  <url type="website">https://findanexpert.unimelb.edu.au/profile/942408-matt-dos-santos-xavier/</url>
+  <license>MIT</license>
+
+  <!-- Build tool dependencies -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Core ROS2 dependencies -->
+  <depend>rclcpp</depend>
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>std_srvs</depend>
+  <depend>cv_bridge</depend>
+  <depend>builtin_interfaces</depend>
+  <depend>eigen</depend>
+  <depend>libgpiod-dev</depend>
+  <depend>python3-numpy</depend>
+  <depend>python3-opencv</depend>
+  <depend>python3-scipy</depend>
+  <depend>python3-matplotlib</depend>
+
+  <!-- Optional Python packages for plant detector training/inference:
+       ultralytics, torch, torchvision. Install versions appropriate for the
+       workstation or Jetson JetPack environment; they are not ROS packages. -->
+
+  <!-- Build-only dependencies for message generation -->
+  <build_depend>rosidl_default_generators</build_depend>
+
+  <!-- Runtime dependencies for message interfaces -->
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>slam_toolbox</exec_depend>
+  <exec_depend>rplidar_ros</exec_depend>
+
+  <!-- Interface package group membership -->
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <!-- Test dependencies -->
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  
+  <!-- Export tag -->
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

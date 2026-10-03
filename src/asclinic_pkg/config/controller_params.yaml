@@ -1,0 +1,195 @@
+control_policy_skeleton:
+  ros__parameters:
+    control_policy_verbosity: 1
+    robot_wheel_base: 0.22
+    robot_wheel_radius: 0.072
+    encoder_counts_per_wheel_revolution: 4480
+
+tracking_controller_node:
+  ros__parameters:
+    odom_topic: "pitt_fused_odometry"
+    reference_path_topic: "reference_path"
+    reference_path_msg_topic: ""
+    target_pose_topic: "target_pose"
+    motor_cmd_topic: "set_motor_duty_cycle"
+    robot_state_topic: "robot_state"
+    plant_detector_enable_topic: "plant_detector/enabled"
+    plant_detections_topic: "plant_detections"
+    unknown_plant_capture_topic: "unknown_plant_capture"
+    aruco_topic: "aruco_detections"
+    scan_topic: "/scan"
+
+    control_period: 0.05
+    path_controller_backend: "direct"   # direct, lqg, mpc, or pid
+    nominal_speed: 0.12
+    max_linear_speed: 0.35
+    max_angular_speed: 1.8
+    lookahead_distance: 0.45
+    goal_tolerance: 0.18
+    waypoint_reached_distance: 0.20
+    slowdown_distance: 0.70
+    curvature_gain: 1.0
+    heading_gain: 1.8
+    right_angle_corner_mode: true
+    corner_angle_threshold: 0.70
+    corner_hold_distance: 0.85
+    corner_search_points: 80
+    point_to_point_mode: true
+    point_to_point_rotate_tolerance: 0.06
+    point_to_point_arrival_tolerance: 0.04
+    point_to_point_min_segment_length: 0.05
+    stop_after_point_rotate_complete: true
+    turn_forward_stop_threshold_duty: 4.0
+    preserve_replan_motion_enabled: true
+    preserve_replan_heading_tolerance_deg: 12.0
+    preserve_replan_start_tolerance_m: 0.45
+    segment_stop_turn_mode: true
+    corner_arrival_distance: 0.15
+    corner_turn_tolerance: 0.08
+    corner_turn_kp: 12.0
+    corner_turn_min_duty: 8.0
+    corner_turn_max_duty: 12.0
+    segment_straight_duty: 20.0
+    segment_min_straight_duty: 15.0
+    segment_yaw_kp: 14.0
+    segment_max_correction: 4.0
+    segment_yaw_deadband: 0.02
+    segment_lateral_kp: 0.0
+    segment_lateral_deadband_m: 0.03
+    segment_lateral_max_heading_deg: 18.0
+    segment_deceleration_distance: 0.70
+    rotate_in_place_angle: 0.85
+    rotate_in_place_min_angular_speed: 0.35
+    backward_target_turn_direction: 1.0
+
+    half_wheel_base: 0.109
+    max_wheel_speed_at_full_duty: 1.50
+    duty_cycle_limit: 28.0
+    min_moving_duty: 18.0
+    left_trim: 1.0
+    # Open-loop motor calibration: physical straight motion at left/right duty
+    # 44/41, so keep right duty at 41/44 of the left duty.
+    right_trim: 0.932
+    duty_slew_rate_percent_per_sec: 55.0
+    graceful_stop_enabled: true
+    graceful_stop_decel_duty_per_sec: 35.0
+    graceful_stop_turn_duty_per_sec: 120.0
+    graceful_stop_zero_threshold_duty: 0.5
+    command_filter_alpha: 0.0
+
+    # Selectable path-controller backend tuning. These backends only replace
+    # path tracking; mission/plant/fog-of-war logic stays in tracking_controller_node.
+    backend_delta_v_limit: 0.30
+    backend_delta_omega_limit: 1.50
+    lqg_q_lqr_diag: [5.0, 5.0, 1.5]
+    lqg_r_lqr_diag: [1.0, 0.4]
+    lqg_qn_diag: [0.01, 0.01, 0.01]
+    lqg_rn_diag: [0.05, 0.05, 0.02]
+    lqg_smooth_turn_enabled: true
+    lqg_smooth_turn_angle_deg: 30.0
+    lqg_stop_turn_angle_deg: 60.0
+    lqg_min_smooth_turn_speed_scale: 0.45
+    mpc_q_diag: [5.0, 5.0, 1.0]
+    mpc_r_diag: [1.0, 0.5]
+    mpc_prediction_horizon: 10
+    pid_kp_x: 1.5
+    pid_ki_x: 0.0
+    pid_kd_x: 0.0
+    pid_ky: 2.5
+    pid_kphi: 1.4
+    pid_kiy: 0.0
+
+    odom_timeout_sec: 1.0
+    path_timeout_sec: 5.0
+    verbose: false
+
+    visual_servo_enabled: true
+    visual_servo_guides: "9:5.00,-90;12:14.20,-90,1.65"
+    visual_servo_lane_tolerance_m: 0.45
+    visual_servo_heading_tolerance_deg: 12.0
+    visual_servo_marker_timeout_sec: 0.75
+    visual_servo_min_range_m: 0.40
+    visual_servo_max_range_m: 7.00
+    visual_servo_bearing_gain: 0.85
+    visual_servo_max_bearing_correction_deg: 18.0
+    visual_servo_speed_scale: 0.70
+    visual_servo_acquire_speed_scale: 0.55
+    visual_arrival_extra_distance_m: 0.80
+    visual_arrival_hold_distance_m: 0.20
+
+    inspection_stop_map: "P1:1.00,9.30;P2:5.50,5.30;P3:8.40,6.75;P4:10.50,6.20;P6:14.50,7.00;P5:10.90,1.00"
+    inspection_dwell_sec: 3.0
+    inspection_dwell_map: "P6:6.0"
+    inspection_stop_heading_tolerance_deg: 35.0
+    inspection_stop_capture_tolerance_m: 0.03
+    inspection_stop_reached_tolerance_m: 0.20
+    inspection_standoff_distance_m: 1.0
+    inspection_standoff_tolerance_m: 0.25
+
+    plant_world_map: "P1:1.00,10.00;P2:5.00,4.00;P3:8.40,8.00;P4:10.00,5.00;P5:12.40,1.00;P6:14.60,8.00"
+    plant_detection_enable_radius: 0.60
+    plant_detection_disable_radius: 0.75
+    plant_detector_hold_sec: 2.0
+    plant_detector_always_enabled: true
+    plant_positive_save_gate_topic: "plant_detector/save_positive_enabled"
+    plant_completion_confidence_threshold: 0.60
+    plant_completion_max_stop_distance_m: 1.60
+    plant_completion_match_mode: "any"
+    plant_completion_require_valid_capture: true
+    plant_completion_require_dwell: true
+
+    plant_bbox_servo_enabled: true
+    plant_capture_radius_m: 0.60
+    plant_detection_stale_timeout_sec: 2.50
+    plant_bbox_image_width: 1920.0
+    plant_bbox_image_height: 1080.0
+    plant_bbox_fx_px: 1429.62
+    plant_bbox_fy_px: 1429.00
+    plant_bbox_center_tolerance_angle_deg: 15.0
+    plant_bbox_fine_tolerance_angle_deg: 5.0
+    plant_bbox_center_tolerance_x_px: 80.0
+    plant_bbox_center_tolerance_y_px: 70.0
+    plant_bbox_center_hold_sec: 1.00
+    plant_capture_dwell_sec: 2.00
+    plant_bbox_pan_gain_us_per_px: 0.18
+    plant_bbox_tilt_gain_us_per_px: 0.14
+    plant_bbox_fine_pan_gain_us_per_px: 0.04
+    plant_bbox_fine_tilt_gain_us_per_px: 0.03
+    plant_bbox_tilt_servo_enabled: false
+    plant_search_pan_span_us: 500
+    plant_search_pan_step_us: 170
+    plant_search_update_period_sec: 1.50
+    plant_bbox_update_period_sec: 0.45
+    plant_opportunistic_capture_enabled: true
+    plant_opportunistic_min_confidence: 0.50
+    plant_opportunistic_assumed_distance_m: 1.20
+    plant_opportunistic_known_plant_exclusion_m: 1.00
+    plant_opportunistic_stop_exclusion_m: 1.00
+    plant_opportunistic_duplicate_radius_m: 0.80
+    plant_opportunistic_cooldown_sec: 8.0
+    plant_opportunistic_lost_timeout_sec: 3.0
+    plant_opportunistic_max_capture_sec: 12.0
+    plant_opportunistic_initial_save_sec: 1.50
+    plant_unknown_lidar_max_range_m: 4.0
+    plant_unknown_lidar_neighbor_beams: 3
+    plant_unknown_lidar_stale_timeout_sec: 0.75
+    lidar_scan_angle_multiplier: 1.0
+    lidar_in_base_yaw_deg: 0.0
+
+    camera_auto_pan_enabled: true
+    camera_pan_topic: "set_servo_pulse_width"
+    camera_pan_channel: 14
+    camera_pan_center_us: 1548
+    camera_pan_min_us: 500
+    camera_pan_max_us: 2500
+    camera_pan_max_angle_deg: 180.0
+    camera_pan_active_radius_m: 1.60
+    camera_pan_enable_detector_gate: true
+    camera_pan_update_period_sec: 0.20
+    camera_pan_return_to_center: true
+    camera_pan_left_positive_is_decreasing: false
+    camera_tilt_channel: 13
+    camera_tilt_center_us: 1400
+    camera_tilt_min_us: 500
+    camera_tilt_max_us: 2500
+    camera_tilt_image_down_positive_increases_us: true

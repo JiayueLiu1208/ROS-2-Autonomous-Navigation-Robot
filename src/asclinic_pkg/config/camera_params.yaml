@@ -1,0 +1,26 @@
+camera_capture:
+  ros__parameters:
+    camera_capture_verbosity: 1
+    camera_capture_usb_camera_device_number: 0
+    camera_capture_desired_camera_frame_height: 1080
+    camera_capture_desired_camera_frame_width: 1920
+    camera_capture_desired_camera_fps: 5
+    camera_capture_chessboard_size_height: 9
+    camera_capture_chessboard_size_width: 6
+    camera_capture_save_image_path: "saved_camera_images/"
+    camera_capture_should_save_all_chessboard_images: false
+    camera_capture_should_publish_camera_images: true
+    camera_capture_should_show_camera_images: false
+
+aruco_detector:
+  ros__parameters:
+    aruco_detector_verbosity: 1
+    aruco_detector_usb_camera_device_number: 0
+    aruco_detector_desired_camera_frame_height: 1080
+    aruco_detector_desired_camera_frame_width: 1920
+    aruco_detector_desired_camera_fps: 5
+    aruco_detector_marker_size: 0.250
+    aruco_detector_save_image_path: "saved_camera_images/"
+    aruco_detector_should_save_all_aruco_images: false
+    aruco_detector_should_publish_camera_images: true
+    aruco_detector_should_show_camera_images: false

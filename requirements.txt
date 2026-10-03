@@ -1,0 +1,9 @@
+# Supplemental Python dependencies; install ROS dependencies with rosdep.
+# NumPy 1.x is required by the original ROS 2 Humble cv_bridge environment.
+numpy<2
+scipy
+matplotlib
+PyYAML
+basicmicro
+# YOLO is optional. Install ultralytics and platform-compatible torch/torchvision
+# separately when enabling the detector, especially on NVIDIA Jetson.

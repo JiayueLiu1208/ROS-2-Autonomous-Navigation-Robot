@@ -1,0 +1,55 @@
+# ASClinic Final Demonstration 2026 world map.
+# Source: ASClinic_pdf/aruco_marker_layout_for_final_demo_2026.pdf
+#
+# Marker placement tolerance from the brief:
+#   - Cartesian coordinate error: +/- 0.05 m
+#   - Heading angle error: +/- 5 deg
+#   - Marker z coordinate: 0.30 m for all markers
+#
+# The marker_world_map_string format is consumed by pitt_fused_odemetry:
+#   "id:x_w,y_w,z_w,phi_deg;..."
+# Do not use marker IDs 17 and 21.
+
+world_map:
+  frame_id: map
+  room: TS Explore (BN193)
+  nominal_size_m:
+    x: 15.0
+    y: 10.8
+  placement_error_m: 0.05
+  heading_error_deg: 5.0
+  marker_z_m: 0.30
+
+  marker_world_map_string: "1:0.00,1.00,0.30,0;2:0.00,3.60,0.30,0;3:0.00,6.60,0.30,0;4:0.00,9.60,0.30,0;5:15.00,1.00,0.30,180;6:15.00,3.60,0.30,180;7:15.00,6.60,0.30,180;8:15.00,9.60,0.30,180;9:5.00,0.00,0.30,90;10:8.00,0.00,0.30,90;11:11.00,0.00,0.30,90;12:14.00,0.00,0.30,90;13:5.00,10.80,0.30,-90;14:8.00,10.80,0.30,-90;15:11.00,10.80,0.30,-90;16:14.00,10.80,0.30,-90;18:8.20,5.20,0.30,0;19:7.80,5.20,0.30,180;20:8.00,5.40,0.30,90;22:8.00,5.00,0.30,-90;27:1.50,3.60,0.30,90;29:8.00,1.30,0.30,180"
+  markers:
+    1: {x: 0.00, y: 1.00, z: 0.30, phi_deg: 0.0}
+    2: {x: 0.00, y: 3.60, z: 0.30, phi_deg: 0.0}
+    3: {x: 0.00, y: 6.60, z: 0.30, phi_deg: 0.0}
+    4: {x: 0.00, y: 9.60, z: 0.30, phi_deg: 0.0}
+    5: {x: 15.00, y: 1.00, z: 0.30, phi_deg: 180.0}
+    6: {x: 15.00, y: 3.60, z: 0.30, phi_deg: 180.0}
+    7: {x: 15.00, y: 6.60, z: 0.30, phi_deg: 180.0}
+    8: {x: 15.00, y: 9.60, z: 0.30, phi_deg: 180.0}
+    9: {x: 5.00, y: 0.00, z: 0.30, phi_deg: 90.0}
+    10: {x: 8.00, y: 0.00, z: 0.30, phi_deg: 90.0}
+    11: {x: 11.00, y: 0.00, z: 0.30, phi_deg: 90.0}
+    12: {x: 14.00, y: 0.00, z: 0.30, phi_deg: 90.0}
+    13: {x: 5.00, y: 10.80, z: 0.30, phi_deg: -90.0}
+    14: {x: 8.00, y: 10.80, z: 0.30, phi_deg: -90.0}
+    15: {x: 11.00, y: 10.80, z: 0.30, phi_deg: -90.0}
+    16: {x: 14.00, y: 10.80, z: 0.30, phi_deg: -90.0}
+    18: {x: 8.20, y: 5.20, z: 0.30, phi_deg: 0.0}
+    19: {x: 7.80, y: 5.20, z: 0.30, phi_deg: 180.0}
+    20: {x: 8.00, y: 5.40, z: 0.30, phi_deg: 90.0}
+    22: {x: 8.00, y: 5.00, z: 0.30, phi_deg: -90.0}
+    27: {x: 1.50, y: 3.60, z: 0.30, phi_deg: 90.0}
+    29: {x: 8.00, y: 1.30, z: 0.30, phi_deg: 180.0}
+
+  plant_world_map_string: "P1:1.00,10.00;P2:5.00,4.00;P3:8.40,8.00;P4:10.00,5.00;P5:12.40,1.00;P6:14.60,8.00"
+  plants:
+    P1: {x: 1.00, y: 10.00}
+    P2: {x: 5.00, y: 4.00}
+    P3: {x: 8.40, y: 8.00}
+    P4: {x: 10.00, y: 5.00}
+    P5: {x: 12.40, y: 1.00}
+    P6: {x: 14.60, y: 8.00}
